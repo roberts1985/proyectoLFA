@@ -110,8 +110,6 @@ def mapear(tablaAFD,dicc_aux,dicc_aux2):
 def convertir_AFN_a_AFD(estados,alfabeto,estado_inicial,estados_aceptores,tabla_transiciones):
     edo_inicial = estado_inicial.split(" ")
     alfabeto.sort()
-    estados.remove(estado_inicial)
-    estados.insert(0, estado_inicial)
     tabla_transiciones_afn = tabla_transiciones
     lista_combinaciones_estados = obtener_combinaciones_estados(estados)
     resultado = obtener_AFD(edo_inicial,lista_combinaciones_estados,alfabeto,tabla_transiciones_afn)
