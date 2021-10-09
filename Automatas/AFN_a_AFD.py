@@ -1,9 +1,8 @@
 '''Este módulo sirve para convertir un Autómata Finito No Determinístico en un Autómata Finito Determinístico'''
 
-def obtener_binario(numero,longitud_alfabeto):
-    '''Este es el docstring de la función obtener_binario'''
+def obtener_binario(numero,cantidad_estados):
     n=bin(numero).replace("0b","")
-    dif=longitud_alfabeto-len(n)
+    dif=cantidad_estados-len(n)
     cad="0"*dif
 
     return cad+n
