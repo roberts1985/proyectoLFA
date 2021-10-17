@@ -84,6 +84,10 @@ if __name__=="__main__":
             estados, alfabeto, estado_inicial, estados_aceptores, tabla = obtener_datos_afd()
             imprimir_mensaje(2)
             archivodot = select_save_path()
+
+            print("archivodot")
+            print(archivodot)
+
             dibuja_automata_graphviz.archivo_graphviz(alfabeto, estados, estado_inicial, estados_aceptores, tabla, archivodot)
             cadena = input("Escribe la cadena a analizar: ")
             res=reconocedor.reconocer_cadena(cadena, alfabeto, estado_inicial, estados_aceptores, tabla)
@@ -96,14 +100,15 @@ if __name__=="__main__":
             imprimir_mensaje(1)
             archivodot=select_save_path()
             dibuja_automata_graphviz.archivo_graphviz(alfabeto, estados, estado_inicial, estados_aceptores, tabla,archivodot)
-            resultado_graficador, resultado_reconocedor, alfabeto, edo_inicial, edos_aceptores = AFN_a_AFD.convertir_AFN_a_AFD(estados, alfabeto, estado_inicial,
+            tablaAFD, estadosAFD, alfabeto, edo_inicial, edos_aceptores = AFN_a_AFD.convertir_AFN_a_AFD(estados, alfabeto, estado_inicial,
                                                                                    estados_aceptores, tabla)
+
             imprimir_mensaje(2)
             archivodot=select_save_path()
-            dibuja_automata_graphviz.archivo_graphviz(alfabeto, resultado_graficador.keys(), edo_inicial, edos_aceptores, resultado_graficador,archivodot)
+            dibuja_automata_graphviz.archivo_graphviz(alfabeto, estadosAFD, edo_inicial, edos_aceptores, tablaAFD,archivodot)
             #print(resultado_reconocedor)
             cadena = input("Escribe la cadena a analizar: ")
-            res=reconocedor.reconocer_cadena(cadena, alfabeto, edo_inicial, edos_aceptores, resultado_reconocedor)
+            res=reconocedor.reconocer_cadena(cadena, alfabeto, edo_inicial, edos_aceptores, tablaAFD)
             if res==True:
                 print("Cadena aceptada...")
             else:

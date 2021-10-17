@@ -79,32 +79,27 @@ def mapear_AFD(tablaAFD,edo_inicial,edos_aceptores):
         dicc_aux[clave]=tuple(cadena.split(" "))
         con+=1
 
-    tablaAFD_mapeada_graficador, tablaAFD_mapeada_reconocedor=mapear(tablaAFD,dicc_aux,dicc_aux2)
+    tablaAFD_mapeada = mapear(tablaAFD,dicc_aux,dicc_aux2)
 
     estados_aceptores=[]
     for e in edos_aceptores:
         estados_aceptores.append(dicc_aux2[e])
 
-    return tablaAFD_mapeada_graficador, tablaAFD_mapeada_reconocedor, dicc_aux2[edo_inicial], estados_aceptores
+    return tablaAFD_mapeada, dicc_aux2[edo_inicial], estados_aceptores
 
 def mapear(tablaAFD,dicc_aux,dicc_aux2):
     tablaAFD_mapeada_graficador = {}
-    tablaAFD_mapeada_reconocedor = {}
 
     for clave, valor in tablaAFD.items():
         lista = []
-        lista_aux = []
         for v in valor:
             if v != ():
                 lista.append(dicc_aux[v])
-                lista_aux.append(dicc_aux2[v])
             else:
-                lista_aux.append('')
                 lista.append(tuple())
         tablaAFD_mapeada_graficador[dicc_aux2[clave]] = lista
-        tablaAFD_mapeada_reconocedor[dicc_aux2[clave]] = lista_aux
 
-    return tablaAFD_mapeada_graficador, tablaAFD_mapeada_reconocedor
+    return tablaAFD_mapeada_graficador
 
 def convertir_AFN_a_AFD(estados,alfabeto,estado_inicial,estados_aceptores,tabla_transiciones):
     edo_inicial = estado_inicial.split(" ")
@@ -113,6 +108,7 @@ def convertir_AFN_a_AFD(estados,alfabeto,estado_inicial,estados_aceptores,tabla_
     lista_combinaciones_estados = obtener_combinaciones_estados(estados)
     resultado = obtener_AFD(edo_inicial,lista_combinaciones_estados,alfabeto,tabla_transiciones_afn)
     edos_aceptores = devolver_estados_aceptoresAFD(resultado.keys(), estados_aceptores)
-    tablaAFD_graficador, tablaAFD_reconocedor, edo_inicial, edos_aceptores = mapear_AFD(resultado, tuple(edo_inicial),edos_aceptores)
+    tablaAFD, edo_inicial, edos_aceptores = mapear_AFD(resultado, tuple(edo_inicial),edos_aceptores)
 
-    return tablaAFD_graficador, tablaAFD_reconocedor, alfabeto, edo_inicial, edos_aceptores
+    #return tablaAFD_graficador, tablaAFD_reconocedor, alfabeto, edo_inicial, edos_aceptores
+    return tablaAFD, tablaAFD.keys(),alfabeto, edo_inicial, edos_aceptores
