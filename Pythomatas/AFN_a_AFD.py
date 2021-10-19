@@ -110,5 +110,4 @@ def convertir_AFN_a_AFD(estados,alfabeto,estado_inicial,estados_aceptores,tabla_
     edos_aceptores = devolver_estados_aceptoresAFD(resultado.keys(), estados_aceptores)
     tablaAFD, edo_inicial, edos_aceptores = mapear_AFD(resultado, tuple(edo_inicial),edos_aceptores)
 
-    #return tablaAFD_graficador, tablaAFD_reconocedor, alfabeto, edo_inicial, edos_aceptores
     return tablaAFD, list(tablaAFD.keys()),alfabeto, edo_inicial, edos_aceptores

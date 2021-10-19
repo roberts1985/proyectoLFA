@@ -102,14 +102,9 @@ if __name__=="__main__":
             dibuja_automata_graphviz.archivo_graphviz(alfabeto, estados, estado_inicial, estados_aceptores, tabla,archivodot)
             tablaAFD, estadosAFD, alfabeto, edo_inicial, edos_aceptores = AFN_a_AFD.convertir_AFN_a_AFD(estados, alfabeto, estado_inicial,
                                                                                    estados_aceptores, tabla)
-
-            print("Estados")
-            print(estadosAFD)
-
             imprimir_mensaje(2)
             archivodot=select_save_path()
             dibuja_automata_graphviz.archivo_graphviz(alfabeto, estadosAFD, edo_inicial, edos_aceptores, tablaAFD,archivodot)
-            #print(resultado_reconocedor)
             cadena = input("Escribe la cadena a analizar: ")
             res=reconocedor.reconocer_cadena(cadena, alfabeto, edo_inicial, edos_aceptores, tablaAFD)
             if res==True:
