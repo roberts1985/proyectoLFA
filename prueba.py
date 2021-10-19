@@ -1,5 +1,5 @@
 '''Este archivo es de prueba, primero importamos el paquete automatas y sus módulos'''
-from Automatas import *
+from Pythomatas import *
 
 import tkinter as tk
 from tkinter import filedialog
@@ -102,6 +102,9 @@ if __name__=="__main__":
             dibuja_automata_graphviz.archivo_graphviz(alfabeto, estados, estado_inicial, estados_aceptores, tabla,archivodot)
             tablaAFD, estadosAFD, alfabeto, edo_inicial, edos_aceptores = AFN_a_AFD.convertir_AFN_a_AFD(estados, alfabeto, estado_inicial,
                                                                                    estados_aceptores, tabla)
+
+            print("Estados")
+            print(estadosAFD)
 
             imprimir_mensaje(2)
             archivodot=select_save_path()
