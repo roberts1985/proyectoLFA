@@ -1,0 +1,10 @@
+setup.py
+Pythomatas/AFN_a_AFD.py
+Pythomatas/__init__.py
+Pythomatas/dibuja_automata_graphviz.py
+Pythomatas/reconocedor.py
+Pythomatas.egg-info/PKG-INFO
+Pythomatas.egg-info/SOURCES.txt
+Pythomatas.egg-info/dependency_links.txt
+Pythomatas.egg-info/requires.txt
+Pythomatas.egg-info/top_level.txt
