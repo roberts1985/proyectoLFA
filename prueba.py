@@ -1,4 +1,4 @@
-'''Este archivo es de prueba, primero importamos el paquete automatas y sus módulos'''
+'''Este archivo es de prueba, primero importamos el paquete automatas y sus módulos y'''
 from Pythomatas import *
 
 import tkinter as tk
